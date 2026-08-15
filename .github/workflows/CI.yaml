@@ -4,7 +4,7 @@ on:
 
 jobs:
   full:
-    runs-on: ubuntu-latest
+    runs-on: SSRUNNER
     steps:
       - uses: actions/checkout@v4
 
@@ -13,7 +13,7 @@ jobs:
           distribution: temurin
           java-version: 17
           cache: maven
-
+      - run: sudo yum install maven -y
       - run: mvn clean package
 
       - name: Deploy to Tomcat
