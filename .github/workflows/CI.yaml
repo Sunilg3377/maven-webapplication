@@ -7,13 +7,15 @@ jobs:
     runs-on: SSRUNNER
     steps:
       - uses: actions/checkout@v4
+      - name: Install Maven
+        run: sudo apt-get update && sudo apt-get install -y maven
 
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
           cache: maven
-      - run: sudo apt-get install maven -y
+     
       - run: mvn clean package
 
       - name: Deploy to Tomcat
