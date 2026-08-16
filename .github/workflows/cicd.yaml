@@ -35,6 +35,17 @@ jobs:
             mvn org.sonarsource.scanner.maven:sonar-maven-plugin:5.7.0.6970:sonar \
             -Dsonar.token=${{ secrets.SONAR_TOKEN }} 
 
+  security-check:
+    runs-on: self-hosted
+    steps:
+      - name: Install triviy
+        run: |
+          wget https://github.com/aquasecurity/trivy/releases/download/v0.74.0/trivy_0.74.0_Linux-64bit.deb
+           sudo dpkg -i trivy_0.74.0_Linux-64bit.deb
+      - name: Trivy Fs scan
+        run: trivy fs --format table -o fs-report.json .      
+       
+
 
 
 
