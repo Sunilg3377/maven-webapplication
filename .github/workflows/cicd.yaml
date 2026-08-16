@@ -37,6 +37,7 @@ jobs:
 
   security-check:
     runs-on: self-hosted
+    needs: sonarqube
     steps:
       - name: Install triviy
         run: |
