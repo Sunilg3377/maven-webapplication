@@ -31,7 +31,7 @@ jobs:
 
     steps:
       - name: SonarQube report
-        run: mvn sonar:sonar
+        run: mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 
 
 
