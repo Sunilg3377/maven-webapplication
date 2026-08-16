@@ -30,8 +30,10 @@ jobs:
     needs: build
 
     steps:
-      - name: SonarQube report
-        run: mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+     - name: SonarQube report
+       run: |
+            mvn org.sonarsource.scanner.maven:sonar-maven-plugin:5.7.0.6970:sonar \
+            -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
 
 
