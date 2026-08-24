@@ -1,4 +1,4 @@
-//dev jenkins pipeline
+//qa jenkins pipeline
 pipeline
 {
     
@@ -14,7 +14,7 @@ pipeline
               steps
               {
                  
-                 git branch: 'dev', url: 'https://github.com/Sunilg3377/maven-webapplication.git'
+                 git branch: 'qa', url: 'https://github.com/Sunilg3377/maven-webapplication.git'
               }
            }
            stage('compile')
@@ -58,6 +58,11 @@ pipeline
         """
               }
            }
-          
-
+           stage ('bsnl-uat')
+           {
+             steps
+              {
+                build job: 'bsnl-uat'
+              }
+            } 
    } //pipeline ending
