@@ -30,7 +30,7 @@ pipeline {
 
         stage('SQ REPORT') {
             steps {
-                sh 'mvn sonar:sonar'
+                sh 'mvn clean package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
             }
         }
 
